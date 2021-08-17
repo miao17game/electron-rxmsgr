@@ -1,14 +1,19 @@
 {
   "name": "@bigmogician/electron-rxmsgr",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.js",
   "repository": "https://github.com/miao17game/electron-rxmsgr.git",
   "author": "bigmogician <sunaoran@youzan.com>",
   "license": "MIT",
   "scripts": {
-    "setup": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ yarn"
+    "setup": "ELECTRON_MIRROR=https://cdn.npm.taobao.org/dist/electron/ yarn",
+    "build": "tsc",
+    "pub": "yarn build && node scripts/stable.publish.js",
+    "rc": "yarn build && node scripts/rc.publish.js"
   },
   "devDependencies": {
+    "@bigmogician/publisher": "^1.0.12",
     "electron": ">=11.2",
     "rxjs": ">=6.6.0",
     "typescript": "^4.3.5"
@@ -16,5 +21,8 @@
   "peerDependencies": {
     "electron": ">=11.2",
     "rxjs": ">=6.6.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.1"
   }
 }
