@@ -1,8 +1,8 @@
 {
   "name": "@bigmogician/electron-rxmsgr",
-  "version": "1.0.1-alpha.1629188370246",
-  "main": "dist/index.js",
-  "types": "dist/index.d.js",
+  "version": "1.0.1-alpha.1629188456823",
+  "main": "index.js",
+  "types": "index.d.js",
   "repository": "https://github.com/miao17game/electron-rxmsgr.git",
   "author": "bigmogician <sunaoran@youzan.com>",
   "license": "MIT",
