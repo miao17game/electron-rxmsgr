@@ -1,0 +1,31 @@
+{
+    "compileOnSave": true,
+    "compilerOptions": {
+      "target": "es5",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "sourceMap": true,
+      "declaration": true,
+      "allowSyntheticDefaultImports": true,
+      "skipLibCheck": true,
+      "typeRoots": ["node_modules/@types"],
+      "lib": ["es2017", "es2016", "es2015", "dom"],
+      "baseUrl": ".",
+      "paths": {
+        "rxjs": ["./node_modules/rxjs"],
+        "electron": ["../main/node_modules/electron"],
+        "#core/*": ["../core/*"],
+        "#websdk": ["../sdk/dist/sdk/web/index"],
+        "@youzan/ews-builder": ["../main/node_modules/@youzan/ews-builder/es/index.web"],
+        "@youzan/ews-builder/*": ["../main/node_modules/@youzan/ews-builder/es/*"],
+        "@youzan/ews-modules": ["../main/node_modules/@youzan/ews-modules"]
+      }
+    },
+    "include": ["."],
+    "exclude": ["node_modules"],
+    "angularCompilerOptions": {
+      "fullTemplateTypeCheck": true,
+      "strictTemplates": true
+    }
+  }
+  
