@@ -1,6 +1,6 @@
 import { ipcMain, WebContents } from "electron";
-import { WrappedServiceMessenger } from "./typings";
-import { createMessenger, IContext, IMessengerWatchHost, MessengerToken } from "./base";
+import { WrappedServiceMessenger } from "./src/typings";
+import { createMessenger, IContext, IMessengerWatchHost, MessengerToken } from "./src/base";
 
 export interface IServiceMessageTarget<T extends IContext> {
   readonly context: IMessengerWatchHost<T>;

@@ -1,6 +1,6 @@
 import { IpcRenderer } from "electron";
-import { IClientMainHost, IClientMessageTarget, WrappedClientMessenger } from "./typings";
-import { createMessenger, IContext, MessengerToken, NgZonePatch, IMessenger } from "./base";
+import { IClientMainHost, IClientMessageTarget, WrappedClientMessenger } from "./src/typings";
+import { createMessenger, IContext, MessengerToken, NgZonePatch, IMessenger } from "./src/base";
 
 const ipcRenderer: IpcRenderer = window.require("electron").ipcRenderer;
 
