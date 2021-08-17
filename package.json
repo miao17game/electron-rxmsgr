@@ -1,6 +1,6 @@
 {
   "name": "@bigmogician/electron-rxmsgr",
-  "version": "1.0.1-alpha.1629188456823",
+  "version": "1.0.1-alpha.1629189111621",
   "main": "index.js",
   "types": "index.d.js",
   "repository": "https://github.com/miao17game/electron-rxmsgr.git",

@@ -1,21 +1,21 @@
 import { FromIpcPayload, IMessenger, UseMessage, UseInvoke, IMessengerWatchHost, IContext } from "./base";
 
 //#region typing helpers
-export interface IServiceDelegate<D, T extends IMessenger, C extends IMessenger> {
+export interface IServiceDelegate<D, T extends IContext, C extends IMessenger> {
   data: FromIpcPayload<D>;
   context: IMessengerWatchHost<T>;
   send: <K extends keyof C>(key: K, data: FromIpcPayload<C[K]>) => void;
   token?: string;
 }
 
-export interface IServiceDelegateNoSend<D, T extends IMessenger, C extends IMessenger> {
+export interface IServiceDelegateNoSend<D, T extends IContext, C extends IMessenger> {
   data: D extends UseInvoke<[infer P1, any]> ? P1 : never;
   context: IMessengerWatchHost<T>;
   send: <K extends keyof C>(key: K, data: FromIpcPayload<C[K]>) => void;
   token?: string;
 }
 
-export interface IClientDelegate<D, T extends IMessenger> {
+export interface IClientDelegate<D, T extends IContext> {
   data: FromIpcPayload<D>;
   context: IMessengerWatchHost<T>;
 }
@@ -23,7 +23,7 @@ export interface IClientDelegate<D, T extends IMessenger> {
 export type IInvokeReturn<T> = T extends UseInvoke<[any, infer R]> ? R | Error : never;
 export type IMessageReturn<T> = T extends UseMessage<infer R> ? R : never;
 
-export type WrappedServiceMessenger<T extends IMessenger, S extends IMessenger, C extends IMessenger> = {
+export type WrappedServiceMessenger<T extends IContext, S extends IMessenger, C extends IMessenger> = {
   [key in keyof S]: S[key] extends UseMessage<any>
     ? (delegate: IServiceDelegate<S[key], T, C>) => void
     : (delegate: IServiceDelegateNoSend<S[key], T, C>) => Promise<IInvokeReturn<S[key]>>;
