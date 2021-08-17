@@ -4,6 +4,7 @@ module.exports = {
   useYarn: false,
   whiteSpace: "  ",
   debug: false,
+  registry: "https://registry.npmjs.org",
   outTransform: json => ({
     ...json,
     scripts: undefined,
