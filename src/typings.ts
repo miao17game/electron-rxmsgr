@@ -4,14 +4,14 @@ import { FromIpcPayload, IMessenger, UseMessage, UseInvoke, IMessengerWatchHost,
 export interface IServiceDelegate<D, T extends IContext, C extends IMessenger> {
   data: FromIpcPayload<D>;
   context: IMessengerWatchHost<T>;
-  send: <K extends keyof C>(key: K, data: FromIpcPayload<C[K]>) => void;
+  send: <K extends keyof C>(key: K, data: FromIpcPayload<C[K]>, sender?: any) => void;
   token?: string;
 }
 
 export interface IServiceDelegateNoSend<D, T extends IContext, C extends IMessenger> {
   data: D extends UseInvoke<[infer P1, any]> ? P1 : never;
   context: IMessengerWatchHost<T>;
-  send: <K extends keyof C>(key: K, data: FromIpcPayload<C[K]>) => void;
+  send: <K extends keyof C>(key: K, data: FromIpcPayload<C[K]>, sender?: any) => void;
   token?: string;
 }
 

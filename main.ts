@@ -33,7 +33,8 @@ export function createServiceMessenger<
         data,
         context: context["host"],
         token,
-        send: invoker.bind(this, event.sender),
+        send: (...args: any[]) =>
+          invoker(args[2] ?? event.sender, args[0], args[1]),
       });
     });
     // for invoke
@@ -47,7 +48,8 @@ export function createServiceMessenger<
             data,
             context: context["host"],
             token,
-            send: invoker.bind(this, event.sender),
+            send: (...args: any[]) =>
+              invoker(args[2] ?? event.sender, args[0], args[1]),
           });
         } catch (error) {
           return {
